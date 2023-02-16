@@ -1,8 +1,9 @@
-import {View, Text, Image} from 'react-native';
-import React from 'react';
+import {View, Text, Image, Button, TextInput} from 'react-native';
+import React, {useState} from 'react';
 import style from './style';
 
 const ListComponent = () => {
+  const [counter, setCounter] = useState(1);
   const data = [
     {
       image: 'https://en.wikipedia.org/wiki/Coffee',
@@ -40,8 +41,28 @@ const ListComponent = () => {
             <Text>Rs. {data[1].price}</Text>
           </View>
         </View>
-
-        <Text>Quantity:{data[1].quantitySold}</Text>
+        <View>
+          <View style={style.listContainerQuantity}>
+            <Button
+              title="+"
+              onPress={() => {
+                setCounter(counter + 1);
+              }}
+            />
+            <TextInput
+              style={style.listContainerTextField}
+              inputMode="numeric"
+              onChange={e => setCounter(e.nativeEvent.text)}
+              value={`${counter}`}
+            />
+            <Button
+              title="-"
+              onPress={() => {
+                setCounter(counter - 1);
+              }}
+            />
+          </View>
+        </View>
       </View>
     </View>
   );

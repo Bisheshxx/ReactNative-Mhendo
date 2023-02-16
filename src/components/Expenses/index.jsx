@@ -6,7 +6,10 @@ import {Image} from 'react-native';
 const ExpensesCarousel = () => {
   return (
     <View style={style.ExpenseView}>
-      <Text style={style.ExpenseTitle}>Expenses</Text>
+      <View style={style.ExpenseTitleHeader}>
+        <Text style={style.ExpenseTitle}>Expenses</Text>
+        <Text style={style.ExpenseTitle}>See All</Text>
+      </View>
       <ScrollView
         horizontal={true}
         style={style.scrollViewStyle}

@@ -5,6 +5,7 @@ import CardComponent from '../../components/CardComponent';
 import CommonCard from '../../shared/card';
 import CheckBoxComponent from '../../components/CheckBox';
 import ExpensesCarousel from '../../components/Expenses';
+import ListComponent from '../../components/ListComponent';
 const HomeScreen = () => {
   return (
     <ScrollView>
@@ -16,11 +17,7 @@ const HomeScreen = () => {
         <CardComponent />
         {/* <CheckBoxComponent /> */}
         <ExpensesCarousel />
-
-        {/* <View style={style.homeScreenCardView}>
-        <Text style={style.textTitle}>Savings</Text>
-        <Text style={{color: 'white'}}>$ 100</Text>
-      </View> */}
+        {/* <ListComponent /> */}
       </View>
     </ScrollView>
   );

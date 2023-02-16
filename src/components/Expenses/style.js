@@ -5,6 +5,13 @@ export default styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
+  ExpenseTitleHeader: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: 5,
+  },
   ExpenseView: {
     alignItems: 'flex-start',
     backgroundColor: '#120A3B',
@@ -19,7 +26,7 @@ export default styles = StyleSheet.create({
     width: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: '#B1B1B1',
     margin: 10,
     borderRadius: 11,
   },

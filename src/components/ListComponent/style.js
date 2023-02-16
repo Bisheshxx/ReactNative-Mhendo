@@ -16,7 +16,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     padding: 20,
     gap: 10,
-    height: 100,
+    height: 90,
     backgroundColor: 'pink',
     borderRadius: 20,
     alignItems: 'center',
@@ -36,5 +36,15 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     gap: 5,
+  },
+  listContainerTextField: {
+    // width: 15,
+    textAlign: 'center',
+  },
+  listContainerQuantity: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
