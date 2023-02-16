@@ -7,21 +7,67 @@ const ExpensesCarousel = () => {
   return (
     <View style={style.ExpenseView}>
       <Text style={style.ExpenseTitle}>Expenses</Text>
-      <ScrollView horizontal={true} style={style.scrollViewStyle}>
+      <ScrollView
+        horizontal={true}
+        style={style.scrollViewStyle}
+        showsHorizontalScrollIndicator={false}>
         <View style={style.addExpenses}>
           <Text>+Add</Text>
         </View>
         <View>
-          <Text>Hello</Text>
           <Image
             source={{
-              uri: 'https://reactjs.org/logo-og.png',
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
             }}
-            style={{
-              width: 100,
-              height: 100,
-              resizeMode: 'contain',
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
             }}
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            }}
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            }}
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            }}
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            }}
+            style={style.addExpenses}
+          />
+        </View>
+        <View>
+          <Image
+            source={{
+              uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            }}
+            style={style.addExpenses}
           />
         </View>
       </ScrollView>
