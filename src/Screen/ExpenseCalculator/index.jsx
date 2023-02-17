@@ -7,20 +7,100 @@ const ExpenseCalculator = () => {
   let [calc, setCalc] = useState({
     sign: '',
     num: '',
-    res: '0',
+    res: null,
   });
 
-  const toLocaleString = num =>
-    String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ');
+  const numClickHandler = e => {
+    if (calc.num === '') {
+      return setCalc({...calc, num: `${e}`});
+    }
+    return setCalc({...calc, num: `${calc.num}${e}`});
+  };
+  const resetClickHandler = e => {
+    return setCalc({
+      sign: '',
+      num: '',
+      res: null,
+    });
+  };
+  const invertClickHandler = e => {
+    console.log('invert');
+  };
+  const percentClickHandler = e => {
+    console.log('percent');
+  };
+  const equalsClickHandler = e => {
+    console.log('equal');
+    // return setCalc({...calc,})
+    //calculate and set first number and reset secondnumber and set result
+  };
+  const add = (a, b) => {
+    let num1 = parseFloat(a);
+    let num2 = parseFloat(b);
+    return num1 + num2;
+  };
+  const multiply = (a, b) => {
+    let num1 = parseFloat(a);
+    let num2 = parseFloat(b);
+    return num1 * num2;
+  };
+  const divide = (a, b) => {
+    let num1 = parseFloat(a);
+    let num2 = parseFloat(b);
+    return num1 / num2;
+  };
+  const substract = (a, b) => {
+    let num1 = parseFloat(a);
+    let num2 = parseFloat(b);
+    return num1 - num2;
+  };
+  const signClickHandler = e => {
+    const previous = parseInt(calc.num);
+    if (calc.res === null) {
+      return setCalc({...calc, res: previous, num: '', sign: e});
+    }
 
-  const removeSpaces = num => num.toString().replace(/\s/g, '');
-  const handleNumber = e => {
+    if (calc.res && calc.num != '' && calc.sign != '') {
+      switch (calc.sign) {
+        case '+':
+          let result = add(calc.res, calc.num);
+          return setCalc({res: result, sign: e, num: ''});
+        case '-':
+          console.log(calc, 'state');
+          let sub = substract(calc.res, calc.num);
+          return setCalc({res: sub, sign: e, num: ''});
+        case 'x':
+          let mul = multiply(calc.res, calc.num);
+          return setCalc({res: mul, sign: e, num: ''});
+        case '/':
+          let div = divide(calc.res, calc.num);
+          return setCalc({res: div, sign: e, num: ''});
+        default:
+          return;
+      }
+    }
+    //TODO set sign and set second num
+    // switch (e) {
+    //   case '+':
+    //     return setCalc({...calc, operator: '+'});
+    //   case '-':
+    //     return setCalc({...calc, operator: '+'});
+    //   case '+':
+    //     return setCalc({...calc, operator: '+'});
+    //   case '+':
+    //     return setCalc({...calc, operator: '+'});
+    //   default:
+    //     return;
+    // }
+  };
+
+  const DecimalClickHandler = e => {
     console.log(e);
     // setCalc({...calc, res: `${calc.res}${e}`});
     // console.log(calc.res);
   };
   const calcLayout = [
-    'Reset',
+    'C',
     '+/-',
     '%',
     '/',
@@ -44,12 +124,12 @@ const ExpenseCalculator = () => {
     <View style={style.expenseContainer}>
       <View style={style.expenseContainerBody}>
         <View style={style.expenseContainerCard}>
-          <Text style={style.expenseContainerText}>{calc.res}</Text>
+          <Text style={style.expenseContainerText}>
+            res{calc.res}, num{calc.num}, sign{calc.sign}
+          </Text>
         </View>
         <View style={style.expenseContainerCardCalculations}>
-          <Text style={style.expenseContainerTextCalculation}>
-            {/* {calculation} */}
-          </Text>
+          <Text style={style.expenseContainerTextCalculation}>{calc.num}</Text>
         </View>
         <View>
           <View
@@ -70,7 +150,7 @@ const ExpenseCalculator = () => {
                       ]}>
                       <Button
                         color="white"
-                        onPress={handleNumber}
+                        onPress={() => equalsClickHandler()}
                         title={`${action}`}></Button>
                     </View>
                   );
@@ -79,7 +159,25 @@ const ExpenseCalculator = () => {
                   <View key={index} style={style.expenseContainerButtonView}>
                     <Button
                       color="white"
-                      onPress={() => handleNumber(action)}
+                      onPress={
+                        action === 'C'
+                          ? () => resetClickHandler()
+                          : action === '+/-'
+                          ? () => invertClickHandler()
+                          : action === '%'
+                          ? () => percentClickHandler()
+                          : action === '='
+                          ? () => equalsClickHandler()
+                          : action === '/' ||
+                            action === 'x' ||
+                            action === '-' ||
+                            action === '+'
+                          ? () => signClickHandler(action)
+                          : // :
+                            // action === '.'
+                            // ? () => DecimalClickHandler()
+                            () => numClickHandler(action)
+                      }
                       title={`${action}`}></Button>
                   </View>
                 );
