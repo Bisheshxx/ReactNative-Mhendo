@@ -52,6 +52,20 @@ export default style = StyleSheet.create({
   expenseContainerButtonText: {
     color: 'white',
   },
+  expenseContainerCalculations: {
+    justifyContent: 'flex-end',
+  },
+  expenseContainerCardCalculations: {
+    height: 85,
+    flexWrap: 'wrap',
+  },
+  expenseContainerTextCalculation: {
+    color: 'white',
+    padding: 10,
+    fontSize: 10,
+    flexWrap: 'wrap',
+    width: '100%',
+  },
 });
 
 // 487972 green

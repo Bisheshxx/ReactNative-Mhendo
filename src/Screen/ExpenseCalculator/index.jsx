@@ -4,9 +4,20 @@ import style from './style';
 import {act} from 'react-test-renderer';
 
 const ExpenseCalculator = () => {
-  const [result, setResult] = useState('0');
-  const onChange = data => {
-    setResult(`${result}` + `${data}`);
+  let [calc, setCalc] = useState({
+    sign: '',
+    num: '',
+    res: '0',
+  });
+
+  const toLocaleString = num =>
+    String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ');
+
+  const removeSpaces = num => num.toString().replace(/\s/g, '');
+  const handleNumber = e => {
+    console.log(e);
+    // setCalc({...calc, res: `${calc.res}${e}`});
+    // console.log(calc.res);
   };
   const calcLayout = [
     'Reset',
@@ -33,14 +44,18 @@ const ExpenseCalculator = () => {
     <View style={style.expenseContainer}>
       <View style={style.expenseContainerBody}>
         <View style={style.expenseContainerCard}>
-          <Text style={style.expenseContainerText}>{result}</Text>
+          <Text style={style.expenseContainerText}>{calc.res}</Text>
+        </View>
+        <View style={style.expenseContainerCardCalculations}>
+          <Text style={style.expenseContainerTextCalculation}>
+            {/* {calculation} */}
+          </Text>
         </View>
         <View>
           <View
             style={{
               alignItems: 'center',
               margin: 10,
-              marginTop: 90,
             }}>
             <View
               style={{flexDirection: 'row', flexWrap: 'wrap', width: '100%'}}>
@@ -53,7 +68,10 @@ const ExpenseCalculator = () => {
                         style.expenseContainerButtonView,
                         {width: '47%'},
                       ]}>
-                      <Button color="white" title={`${action}`}></Button>
+                      <Button
+                        color="white"
+                        onPress={handleNumber}
+                        title={`${action}`}></Button>
                     </View>
                   );
                 }
@@ -61,7 +79,7 @@ const ExpenseCalculator = () => {
                   <View key={index} style={style.expenseContainerButtonView}>
                     <Button
                       color="white"
-                      onPress={() => onChange(action)}
+                      onPress={() => handleNumber(action)}
                       title={`${action}`}></Button>
                   </View>
                 );
