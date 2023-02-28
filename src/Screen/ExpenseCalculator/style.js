@@ -62,7 +62,7 @@ export default style = StyleSheet.create({
   expenseContainerTextCalculation: {
     color: 'white',
     padding: 10,
-    fontSize: 10,
+    fontSize: 15,
     flexWrap: 'wrap',
     width: '100%',
   },

@@ -1,5 +1,5 @@
 import {View, Text, Button, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './style';
 import {act} from 'react-test-renderer';
 
@@ -9,14 +9,43 @@ const ExpenseCalculator = () => {
     num: '',
     res: null,
   });
+  let [history, setHistory] = useState('');
+  const calculationHistory = value => {
+    console.log(value, 'this is value');
+    if (history === '') {
+      return setHistory(`${value}`);
+    }
+    if (
+      history.charAt(history.length - 1) === '+' ||
+      history.charAt(history.length - 1) === '-' ||
+      history.charAt(history.length - 1) === 'x' ||
+      history.charAt(history.length - 1) === '/'
+    ) {
+      if (value === '+' || value === '-' || value === 'x' || value === '/') {
+        console.log('here');
+        // console.log(history, 'history');
+        let previousState = history.substring(0, history.length - 1);
+        setHistory(`${previousState}${value}`);
+        // console.log(previousState, 'previous state');
+        return;
+      }
+    }
+    setHistory(`${history}${value}`);
+  };
 
   const numClickHandler = e => {
+    // setHistory(`${e}`);
+    calculationHistory(e);
     if (calc.num === '') {
       return setCalc({...calc, num: `${e}`});
     }
-    return setCalc({...calc, num: `${calc.num}${e}`});
+    return setCalc({
+      ...calc,
+      num: `${calc.num}${e}`,
+    });
   };
   const resetClickHandler = e => {
+    setHistory('');
     return setCalc({
       sign: '',
       num: '',
@@ -30,7 +59,26 @@ const ExpenseCalculator = () => {
     console.log('percent');
   };
   const equalsClickHandler = e => {
-    console.log('equal');
+    switch (calc.sign) {
+      case '+':
+        let result = add(calc.res, calc.num);
+        return setCalc({res: result, sign: '', num: ''});
+      case '-':
+        console.log(calc, 'state');
+        let sub = substract(calc.res, calc.num);
+        return setCalc({res: sub, sign: '', num: ''});
+
+      case 'x':
+        let mul = multiply(calc.res, calc.num);
+        return setCalc({res: mul, sign: '', num: ''});
+
+      case '/':
+        let div = divide(calc.res, calc.num);
+        return setCalc({res: div, sign: '', num: ''});
+
+      default:
+        return;
+    }
     // return setCalc({...calc,})
     //calculate and set first number and reset secondnumber and set result
   };
@@ -55,11 +103,14 @@ const ExpenseCalculator = () => {
     return num1 - num2;
   };
   const signClickHandler = e => {
+    calculationHistory(e);
     const previous = parseInt(calc.num);
     if (calc.res === null) {
       return setCalc({...calc, res: previous, num: '', sign: e});
     }
-
+    if (calc.sign === '' || calc.sign) {
+      setCalc({...calc, sign: e});
+    }
     if (calc.res && calc.num != '' && calc.sign != '') {
       switch (calc.sign) {
         case '+':
@@ -124,12 +175,10 @@ const ExpenseCalculator = () => {
     <View style={style.expenseContainer}>
       <View style={style.expenseContainerBody}>
         <View style={style.expenseContainerCard}>
-          <Text style={style.expenseContainerText}>
-            res{calc.res}, num{calc.num}, sign{calc.sign}
-          </Text>
+          <Text style={style.expenseContainerText}>{calc.res}</Text>
         </View>
         <View style={style.expenseContainerCardCalculations}>
-          <Text style={style.expenseContainerTextCalculation}>{calc.num}</Text>
+          <Text style={style.expenseContainerTextCalculation}>{history}</Text>
         </View>
         <View>
           <View
@@ -173,10 +222,7 @@ const ExpenseCalculator = () => {
                             action === '-' ||
                             action === '+'
                           ? () => signClickHandler(action)
-                          : // :
-                            // action === '.'
-                            // ? () => DecimalClickHandler()
-                            () => numClickHandler(action)
+                          : () => numClickHandler(action)
                       }
                       title={`${action}`}></Button>
                   </View>
