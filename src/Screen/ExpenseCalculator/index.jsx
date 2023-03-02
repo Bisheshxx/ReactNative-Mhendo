@@ -1,7 +1,6 @@
 import {View, Text, Button, ScrollView} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import style from './style';
-import {act} from 'react-test-renderer';
 
 const ExpenseCalculator = () => {
   let [calc, setCalc] = useState({
@@ -11,7 +10,6 @@ const ExpenseCalculator = () => {
   });
   let [history, setHistory] = useState('');
   const calculationHistory = value => {
-    console.log(value, 'this is value');
     if (history === '') {
       return setHistory(`${value}`);
     }
@@ -22,11 +20,8 @@ const ExpenseCalculator = () => {
       history.charAt(history.length - 1) === '/'
     ) {
       if (value === '+' || value === '-' || value === 'x' || value === '/') {
-        console.log('here');
-        // console.log(history, 'history');
         let previousState = history.substring(0, history.length - 1);
         setHistory(`${previousState}${value}`);
-        // console.log(previousState, 'previous state');
         return;
       }
     }
@@ -34,7 +29,6 @@ const ExpenseCalculator = () => {
   };
 
   const numClickHandler = e => {
-    // setHistory(`${e}`);
     calculationHistory(e);
     if (calc.num === '') {
       return setCalc({...calc, num: `${e}`});
@@ -104,7 +98,7 @@ const ExpenseCalculator = () => {
   };
   const signClickHandler = e => {
     calculationHistory(e);
-    const previous = parseInt(calc.num);
+    const previous = parseFloat(calc.num);
     if (calc.res === null) {
       return setCalc({...calc, res: previous, num: '', sign: e});
     }
@@ -175,7 +169,9 @@ const ExpenseCalculator = () => {
     <View style={style.expenseContainer}>
       <View style={style.expenseContainerBody}>
         <View style={style.expenseContainerCard}>
-          <Text style={style.expenseContainerText}>{calc.res}</Text>
+          <Text style={style.expenseContainerText}>
+            res:{calc.res}num:{calc.num}sign:{calc.sign}
+          </Text>
         </View>
         <View style={style.expenseContainerCardCalculations}>
           <Text style={style.expenseContainerTextCalculation}>{history}</Text>
