@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
   },
   ExpenseView: {
     alignItems: 'flex-start',
-    backgroundColor: '#120A3B',
+    backgroundColor: '#122139',
     width: '100%',
     borderRadius: 25,
     padding: 9,

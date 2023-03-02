@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   CardView: {
-    backgroundColor: '#120A3B',
+    backgroundColor: '#122139',
     width: '100%',
     margin: 3,
     borderRadius: 40,

@@ -111,7 +111,6 @@ const ExpenseCalculator = () => {
           let result = add(calc.res, calc.num);
           return setCalc({res: result, sign: e, num: ''});
         case '-':
-          console.log(calc, 'state');
           let sub = substract(calc.res, calc.num);
           return setCalc({res: sub, sign: e, num: ''});
         case 'x':
@@ -124,19 +123,6 @@ const ExpenseCalculator = () => {
           return;
       }
     }
-    //TODO set sign and set second num
-    // switch (e) {
-    //   case '+':
-    //     return setCalc({...calc, operator: '+'});
-    //   case '-':
-    //     return setCalc({...calc, operator: '+'});
-    //   case '+':
-    //     return setCalc({...calc, operator: '+'});
-    //   case '+':
-    //     return setCalc({...calc, operator: '+'});
-    //   default:
-    //     return;
-    // }
   };
 
   const DecimalClickHandler = e => {
@@ -169,9 +155,7 @@ const ExpenseCalculator = () => {
     <View style={style.expenseContainer}>
       <View style={style.expenseContainerBody}>
         <View style={style.expenseContainerCard}>
-          <Text style={style.expenseContainerText}>
-            res:{calc.res}num:{calc.num}sign:{calc.sign}
-          </Text>
+          <Text style={style.expenseContainerText}>{calc.res}</Text>
         </View>
         <View style={style.expenseContainerCardCalculations}>
           <Text style={style.expenseContainerTextCalculation}>{history}</Text>

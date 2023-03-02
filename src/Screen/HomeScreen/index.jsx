@@ -8,11 +8,11 @@ import ExpensesCarousel from '../../components/Expenses';
 import ListComponent from '../../components/ListComponent';
 const HomeScreen = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: '#0d1923', marginTop: 35}}>
       <View style={style.HomeScreen}>
         <View style={style.homeScreenHeader}>
-          <Text>Welcome Back,</Text>
-          <Text>First Name</Text>
+          <Text style={{color: 'white'}}>Welcome Back,</Text>
+          <Text style={{color: 'white'}}>First Name</Text>
         </View>
         <CardComponent />
         {/* <CheckBoxComponent /> */}

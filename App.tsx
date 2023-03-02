@@ -4,5 +4,6 @@ import HomeScreen from './src/Screen/HomeScreen';
 import ExpenseCalculator from './src/Screen/ExpenseCalculator';
 
 export default function App() {
-  return <ExpenseCalculator />;
+  return <HomeScreen />;
+  // return <ExpenseCalculator />;
 }
