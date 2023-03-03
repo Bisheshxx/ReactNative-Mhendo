@@ -38,7 +38,7 @@ const ListComponent = () => {
           />
           <View style={style.listContainerLeftTextChild}>
             <Text style={style.listContainerTitle}>{data[1].title}</Text>
-            <Text>Rs. {data[1].price}</Text>
+            <Text style={{color: 'white'}}>Rs. {data[1].price}</Text>
           </View>
         </View>
         <View>

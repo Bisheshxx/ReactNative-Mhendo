@@ -17,10 +17,13 @@ const HomeScreen = () => {
         <CardComponent />
         {/* <CheckBoxComponent /> */}
         <ExpensesCarousel />
-        {/* <ListComponent /> */}
+        <ListComponent />
       </View>
     </ScrollView>
   );
 };
 
 export default HomeScreen;
+
+//0d1923 background color
+// 122139 body color

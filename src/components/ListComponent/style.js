@@ -17,7 +17,7 @@ export default StyleSheet.create({
     padding: 20,
     gap: 10,
     height: 90,
-    backgroundColor: 'pink',
+    backgroundColor: '#122139',
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -25,6 +25,7 @@ export default StyleSheet.create({
   listContainerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white',
   },
   listContainerLeft: {
     flex: 1,
@@ -40,6 +41,8 @@ export default StyleSheet.create({
   listContainerTextField: {
     // width: 15,
     textAlign: 'center',
+    color: 'white',
+    fontSize: 18,
   },
   listContainerQuantity: {
     flex: 1,
