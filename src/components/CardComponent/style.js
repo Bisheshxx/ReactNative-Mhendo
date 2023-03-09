@@ -3,10 +3,9 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   CardView: {
     backgroundColor: '#122139',
-    width: '100%',
-    margin: 3,
     borderRadius: 40,
     height: 300,
+    margin: 5,
   },
   shadowProp: {
     shadowColor: '#171717',

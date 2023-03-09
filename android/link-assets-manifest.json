@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/FragmentMono-Italic.ttf",
+      "sha1": "79e97dd92bad9fded5eb39f214668b5924f859fd"
+    },
+    {
+      "path": "assets/fonts/FragmentMono-Regular.ttf",
+      "sha1": "bfba4f8012a9e0eb9d8bc9702ce0a2b2837e05bc"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "sha1": "2c966fb6ee7f80a757942d7c2f5a85c482b40f2f"
+    }
+  ]
+}

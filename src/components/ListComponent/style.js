@@ -11,7 +11,6 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   listContainer: {
-    margin: 5,
     flex: 1,
     flexDirection: 'row',
     padding: 20,
