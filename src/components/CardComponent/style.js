@@ -5,7 +5,7 @@ export default StyleSheet.create({
     backgroundColor: '#122139',
     borderRadius: 40,
     height: 300,
-    margin: 5,
+    width: '100%',
   },
   shadowProp: {
     shadowColor: '#171717',
@@ -13,28 +13,5 @@ export default StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 20,
-  },
-  CardViewTitleText: {
-    fontSize: 12,
-    color: 'white',
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-  CardViewSubTitleText: {
-    color: 'white',
-    fontSize: 15,
-    textAlign: 'center',
-  },
-  CardViewHeader: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    padding: 20,
-  },
-  CardViewLineChart: {
-    padding: 10,
-    justifyContent: 'center',
-    alignContent: 'center',
-    marginBottom: 20,
   },
 });

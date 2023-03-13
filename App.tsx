@@ -6,6 +6,6 @@ import KhataScreen from './src/Screen/khata';
 import SinglePersonKhata from './src/Screen/PersonKhata';
 
 export default function App() {
-  return <SinglePersonKhata />;
+  return <HomeScreen />;
   // return <ExpenseCalculator />;
 }
