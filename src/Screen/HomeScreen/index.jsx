@@ -9,7 +9,7 @@ import ListComponent from '../../components/ListComponent';
 import VerticalPillCardComponent from '../../components/CustomCard-verticalPill';
 const HomeScreen = () => {
   return (
-    <ScrollView style={{backgroundColor: '#0d1923', marginTop: 35}}>
+    <ScrollView style={{backgroundColor: '#0d1923'}}>
       <View style={style.HomeScreen}>
         <View style={style.homeScreenHeader}>
           <Text style={{color: 'white'}}>Welcome Back,</Text>

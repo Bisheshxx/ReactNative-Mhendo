@@ -2,9 +2,7 @@ import {StyleSheet} from 'react-native';
 // backgroundColor: '#120A3B',
 
 export default style = StyleSheet.create({
-  expenseContainer: {
-    marginTop: 35,
-  },
+  expenseContainer: {},
   expenseContainerBody: {
     backgroundColor: '#0d1923',
     height: '100%',

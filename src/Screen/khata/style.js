@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   khataScroll: {
     backgroundColor: '#0d1923',
-    marginTop: 33,
   },
   khataText: {
     color: 'white',
